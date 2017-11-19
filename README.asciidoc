@@ -10,9 +10,8 @@ but even in this state I have found it useful. Pull requests are welcome.
 == Example
 
 [source,clojure]
----
+
 {:a {:b {:c 10}}}
----
 
 [source,java]
 ----
