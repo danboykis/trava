@@ -1,9 +1,10 @@
 = Trava (Transit + Java)
+
 Working with transit from Java is often a pain because of deeply nested datastructures
 that come back from transit. Trava attempts to make life a little easier by providing helper
 functions to access nested data.
 
-There are things trava doesn't do yet. For example, assoc in trava won't work on java.util.List
+There are things trava doesn't do yet. For example, assoc in trava won't work on `java.util.List`
 but even in this state I have found it useful. Pull requests are welcome.
 
 == Example
@@ -20,12 +21,12 @@ Map<Keyword,Object> nestedMap = ... ;
 
 List<Keyword> path = Arrays.asList(new KeywordImpl("a"), new KeywordImpl("b"), new KeywordImpl("c"));
 
-Assert.assertEquals(10,MapNavigator.getIn(nestedMap, path));
+Assert.assertEquals(10,Navigator.getIn(nestedMap, path));
 
 //Transform the map to make it like so:
 // {:a {:b {:c 10 :d 1}}}
 List<Keyword> newPath = Arrays.asList(new KeywordImpl("a"), new KeywordImpl("b"), new KeywordImpl("d"));
 
-nestedMap = MapNavigator.assocIn(nestedMap, newPath, 1);
-Assert.assertEquals(1,MapNavigator.getIn(nestedMap, newPath));
+nestedMap = Navigator.assocIn(nestedMap, newPath, 1);
+Assert.assertEquals(1,Navigator.getIn(nestedMap, newPath));
 ----
